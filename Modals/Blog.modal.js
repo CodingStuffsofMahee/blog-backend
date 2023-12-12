@@ -15,11 +15,11 @@ const BlogSchema = new mongoose.Schema({
     blogCategory: {
         type: String
     },
-    BlogLikes: {
+    blogLikes: {
         type: String,
         default:0
     },
-    blogcomments: {
+    blogComments: {
         type: [String],
     }
 })
