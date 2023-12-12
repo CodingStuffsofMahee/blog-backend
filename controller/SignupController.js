@@ -4,13 +4,16 @@ const saltRounds = 10;
 
 
 const SignupController = async (req, res) => {
-    const UserExists = await UserModel.exists({ username: req.body.username })
+    const UserExists = await UserModel.exists({ email: req.body.email })
     if (UserExists === null) {
         bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
             // Store hash in your password DB.
             UserModel.create({
+                name:req.body.name,
+                email:req.body.email,
                 username: req.body.username,
-                password: hash
+                password: hash,
+                profileUrl:req.body.profileUrl
             })
         });
 

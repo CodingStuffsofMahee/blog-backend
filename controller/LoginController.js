@@ -3,10 +3,10 @@ const bcrypt = require('bcrypt');
 
 
 const LoginController = async (req, res) => {
-    const UserExists = await UserModel.exists({ username: req.body.username })
+    const UserExists = await UserModel.exists({ email: req.body.email })
     if (UserExists === null) {
         res.json({
-            message: "AlreadyLogged / Some error",
+            message: "User not exists",
             status: 400
         })
         
