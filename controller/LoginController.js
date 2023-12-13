@@ -17,10 +17,20 @@ const LoginController = async (req, res) => {
         bcrypt.compare(req.body.password, UserData.password, function(err, result) {
             // result == true
             if (result===true) {
-                res.json({
-                    message: "Logged Successful",
-                    status: 200
-                })
+                if (req.body.email === 'admin@theCodingScribe.com') {
+                    res.json({
+                        message: "Logged Successful",
+                        status: 200,
+                        role:'admin'
+                    })
+                }
+                else {
+                    res.json({
+                        message: "Logged Successful",
+                        status: 200,
+                        role:'user'
+                    })
+                }
             } else {
                 res.json({
                     message: "Password mis-matched",
