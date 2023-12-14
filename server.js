@@ -14,8 +14,8 @@ app.use(express.json())
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use('/api/', CreateBlogsRouter)
-app.use('/api/account', UserRouter)
+app.use('/api/', cors(), CreateBlogsRouter)
+app.use('/api/account',cors(), UserRouter)
 
 
 
