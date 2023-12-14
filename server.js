@@ -1,5 +1,4 @@
 require('./DB/DB.connection')
-const bodyParser = require('body-parser')
 const express=require('express')
 const dotenv=require("dotenv")
 dotenv.config();
@@ -12,7 +11,6 @@ const UserRouter = require('./Routes/user.routes');
 const app = express()
 app.use(express.json())
 app.use(cors())
-app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use('/api/', cors(), CreateBlogsRouter)
 app.use('/api/account',cors(), UserRouter)
