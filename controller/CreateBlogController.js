@@ -1,4 +1,6 @@
 const BlogModel = require('../Modals/Blog.modal')
+
+
 const CreateBlogController = async (req, res) => {
     const BlogExists = await BlogModel.exists({ blogName: req.body.blogName })
     if (BlogExists===null) {
